@@ -1,0 +1,93 @@
+:root{
+  --bg:#f6f7f9;
+  --text:#101418;
+  --muted:#73808c;
+  --green:#03ac0e;           /* Tokopedia green */
+  --green-dark:#02930c;
+  --card:#ffffff;
+  --disc:#ff4b4b;
+  --shadow:0 6px 20px rgba(16,20,24,.06);
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;color:var(--text);background:var(--bg)}
+
+.store-card{
+  display:flex;align-items:center;gap:12px;
+  background:var(--card);padding:14px 16px;margin:12px;
+  border-radius:16px;box-shadow:var(--shadow)
+}
+.avatar{
+  width:44px;height:44px;border-radius:50%;object-fit:cover;
+  border:2px solid #e6f3e8; background:#fff;
+}
+.store-name{font-size:20px;margin:0;font-weight:800;letter-spacing:.3px}
+.store-sub{margin:2px 0 0;font-size:12px;color:var(--muted)}
+
+.controls{
+  display:flex;gap:12px;padding:0 12px;margin-bottom:8px
+}
+.controls input,.controls select{
+  height:42px;border-radius:12px;border:0;outline:0;
+  padding:0 14px;background:#fff;box-shadow:var(--shadow);width:100%;
+  font-size:14px;color:var(--text)
+}
+.controls select{max-width:210px}
+
+.tip{
+  margin:8px 12px 4px;background:#fff;border-radius:12px;padding:10px 12px;
+  color:#5a6772;font-size:13px;box-shadow:var(--shadow)
+}
+
+/* Grid 2 kolom */
+.products{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:12px;padding:12px
+}
+
+/* Kartu */
+.card{
+  display:flex;flex-direction:column;text-decoration:none;color:inherit;
+  background:var(--card);border-radius:16px;box-shadow:var(--shadow);overflow:hidden;position:relative
+}
+.disc{
+  position:absolute;left:12px;top:12px;background:var(--disc);color:#fff;
+  font-size:13px;font-weight:800;padding:6px 10px;border-radius:10px
+}
+
+.thumb{position:relative;background:
+  repeating-linear-gradient(45deg,#f1f3f6,#f1f3f6 8px,#eceff3 8px,#eceff3 16px);
+  height:150px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid #f0f2f5
+}
+.thumb img{max-width:100%;max-height:100%;object-fit:contain;background:#fff}
+
+/* shimmer */
+.skeleton::after{
+  content:"";position:absolute;inset:0;background:
+    linear-gradient(90deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.8) 50%,rgba(255,255,255,0) 100%);
+  transform:translateX(-100%);animation:sh 1.1s infinite
+}
+@keyframes sh{to{transform:translateX(100%)}}
+
+.meta{padding:12px;display:flex;flex-direction:column;gap:8px}
+.badge{
+  align-self:flex-start;background:#e9f9eb;color:var(--green);
+  border:1px solid #d6f2da;border-radius:999px;padding:5px 9px;font-size:12px;font-weight:700
+}
+.name{margin:0;font-size:14px;line-height:1.35;font-weight:800;min-height:38px}
+.price{display:flex;align-items:center;gap:8px}
+.now{color:#d70018;font-size:18px;font-weight:900}
+.cut{color:#9ca3af;text-decoration:line-through;font-size:12px}
+.sold{color:var(--muted);font-size:12px}
+
+.btn{
+  width:100%;border:0;border-radius:12px;background:var(--green);color:#fff;
+  font-weight:900;padding:11px;cursor:pointer;transition:.2s background;margin-top:2px
+}
+.btn:hover{background:var(--green-dark)}
+
+/* — kecilkan jarak di layar sempit */
+@media (max-width:360px){
+  .thumb{height:140px}
+  .controls select{max-width:170px}
+}

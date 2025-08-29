@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Daily Outfit — Ala Tokopedia</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Header toko -->
+  <header class="store-card">
+    <img class="avatar" src="images/toko.jpg" alt="Daily Outfit" />
+    <div class="store-info">
+      <h1 class="store-name">DAILY OUTFIT</h1>
+      <p class="store-sub">Knit & basic wear · update tiap minggu · garansi tukar size</p>
+    </div>
+  </header>
+
+  <!-- Controls -->
+  <section class="controls">
+    <input id="q" type="search" placeholder="Cari produk / nomor..." autocomplete="off" />
+    <select id="sort">
+      <option value="latest">Terbaru (ID ↓)</option>
+      <option value="price-asc">Harga termurah</option>
+      <option value="price-desc">Harga termahal</option>
+      <option value="sold-desc">Terlaris</option>
+    </select>
+  </section>
+
+  <!-- Tips -->
+  <div class="tip">Tap gambar atau tombol “Beli Sekarang” untuk buka link produk.</div>
+
+  <!-- Grid produk (2 kolom) -->
+  <main id="grid" class="products"></main>
+
+  <!-- Template kartu -->
+  <template id="cardTpl">
+    <a class="card" target="_blank" rel="noopener">
+      <span class="disc"></span>
+      <div class="thumb skeleton">
+        <img loading="lazy" alt="" />
+      </div>
+
+      <div class="meta">
+        <span class="badge">Gratis Ongkir</span>
+
+        <h3 class="name"></h3>
+
+        <div class="price">
+          <span class="now"></span>
+          <span class="cut"></span>
+        </div>
+
+        <div class="sold"></div>
+
+        <button class="btn">Beli Sekarang</button>
+      </div>
+    </a>
+  </template>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
